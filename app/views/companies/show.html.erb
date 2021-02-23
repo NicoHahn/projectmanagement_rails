@@ -1,0 +1,15 @@
+<p>This is the company show page</p>
+
+
+<h2><%= I18n.t 'company.members' %>:</h2>
+
+<ul>
+  <% @company.users.each do |u| %>
+    <li><%= u.firstname%>, <%= u.lastname %></li>
+  <% end %>
+</ul>
+
+<%= form_for @company do |f| %>
+  <%= f.select(:user_ids, @users.collect{ |u| [u.full_name, u.id] }, include_blank: "Select User") %>
+  <%= f.submit "Add User", method: :add_user %>
+<% end %>
