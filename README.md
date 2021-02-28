@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+To get jquery up and running:
+
+* Simply run "yarn add jquery" and you should be good to go
