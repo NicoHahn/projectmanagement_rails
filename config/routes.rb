@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root :to => 'sessions#welcome'
+
   get 'tasks/create'
   get 'tasks/update'
   get 'tasks/delete'
@@ -13,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
 
