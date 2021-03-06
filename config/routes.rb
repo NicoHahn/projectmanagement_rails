@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'sessions#welcome'
+  root :to => 'sessions#create'
 
   get 'tasks/create'
   get 'tasks/update'
