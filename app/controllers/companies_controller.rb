@@ -3,8 +3,6 @@ class CompaniesController < ApplicationController
   before_action :set_company, except: [:new, :create]
 
   def index
-    user = current_user
-    @user_companies = Company.where(id: user.company_ids)
   end
 
   def new
