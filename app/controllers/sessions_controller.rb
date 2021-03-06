@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def welcome
-
+    @user = current_user
   end
 
   def page_requires_login
