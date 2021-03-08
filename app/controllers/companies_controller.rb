@@ -10,8 +10,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.create(params.require(:company).permit(:name))
+    @company = Company.create(params.require(:company).permit(:name, :creator_id))
     if @company
+      @company.user_ids << current_user.id
+      @company.save
       redirect_to company_path(id: @company.id)
     end
   end
