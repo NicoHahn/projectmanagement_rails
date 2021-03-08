@@ -13,3 +13,41 @@
   <%= f.select(:user_ids, @users.collect{ |u| [u.full_name, u.id] }, include_blank: "Select User") %>
   <%= f.submit "Add User", method: :add_user %>
 <% end %>
+
+<h2 class="text-center">Current Projects:</h2>
+<div class="flex justify-center">
+  <%= button_to "Create a new Project", new_company_project_path(company_id: @company.id), method: :get, class: "mt-1.5 transition duration-500 inline-block text-sm px-4 py-2 text-black border-black ease-in-out bg-green-600 hover:bg-black hover:text-white transform hover:-translate-y-1 hover:scale-110 hover:border-transparent rounded border cursor-pointer" %>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              #
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Name
+            </th>
+          </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+          <% @company_projects.each_with_index do |project, idx| %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900"><%= idx %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900 hover:underline"><a href="<%= project_path(project.id) %>"><%= project.name %></a></div>
+              </td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

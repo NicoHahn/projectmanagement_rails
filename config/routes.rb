@@ -2,15 +2,9 @@ Rails.application.routes.draw do
 
   root :to => 'sessions#create'
 
-  get 'tasks/create'
-  get 'tasks/update'
-  get 'tasks/delete'
-  get 'tasks/show'
-  get 'projects/create'
-  get 'projects/update'
-  get 'projects/delete'
-  get 'projects/show'
-  resources :companies
+  resources :companies do
+    resources :projects
+  end
 
   resources :users, only: [:new, :create]
 
