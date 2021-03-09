@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root :to => 'sessions#create'
 
   resources :companies do
-    resources :projects
+    resources :projects do
+      resources :tasks
+    end
   end
 
   resources :users, only: [:new, :create]

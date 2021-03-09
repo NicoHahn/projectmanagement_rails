@@ -1,5 +1,16 @@
 class TasksController < ApplicationController
+
+  before_action :set_task, except: [:new, :create]
+
+  def new
+    @task = Task.new
+  end
+
   def create
+    @task = Task.create(params.require(:task).permit(:name, :description, :project_id, :user_id, :creator_id))
+    if @task
+      redirect_to company_project_path(company_id: params[:company_id], id: params[:project_id])
+    end
   end
 
   def update
@@ -10,4 +21,10 @@ class TasksController < ApplicationController
 
   def show
   end
+
+  private
+  def set_task
+    @task = Task.find_by(id: params[:id])
+  end
+
 end

@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_action :set_project, except: [:new, :create]
 
   def new
-    #byebug
     @project = Project.new
     @company = Company.find_by(id: params[:company_id])
   end
