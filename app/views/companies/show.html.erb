@@ -40,7 +40,7 @@
                 <div class="text-sm text-gray-900"><%= idx %></div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900 hover:underline"><a href="<%= project_path(project.id) %>"><%= project.name %></a></div>
+                <div class="text-sm text-gray-900 hover:underline"><a href="<%= company_project_path(id: project.id, company_id: @company.id) %>"><%= project.name %></a></div>
               </td>
             </tr>
           <% end %>

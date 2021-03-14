@@ -4,6 +4,9 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @project = Project.find_by(id: params[:project_id])
+    @company = Company.find_by(id: params[:company_id])
+    @users = User.all.where.not(id: @company.user_ids)
   end
 
   def create

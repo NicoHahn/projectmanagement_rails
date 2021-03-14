@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @company_id = params[:company_id]
+    @tasks = Task.where(project_id: @project.id)
   end
 
   private
