@@ -9,9 +9,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(params.require(:project).permit(:name, :description, :company_id, :creator_id))
-    if @project
-      redirect_to company_project_path(company_id: params[:company_id], id: @project.id)
-    end
+    redirect_to company_project_path(company_id: params[:company_id], id: @project.id) if @project
   end
 
   def update
