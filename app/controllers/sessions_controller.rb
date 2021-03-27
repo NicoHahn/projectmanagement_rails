@@ -29,8 +29,5 @@ class SessionsController < ApplicationController
     @user = current_user
   end
 
-  def page_requires_login
-
-  end
 
 end
