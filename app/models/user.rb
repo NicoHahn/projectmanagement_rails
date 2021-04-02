@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tasks
 
+  has_many :notifications
+
   validates :email,
             format: { with: /(.+)@(.+)/, message: "Email invalid" },
             uniqueness: { case_sensitive: false },
