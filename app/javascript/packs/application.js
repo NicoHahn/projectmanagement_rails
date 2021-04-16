@@ -11,6 +11,7 @@ require("jquery")
 require("tailwindcss")
 
 import "stylesheets/application"
+import "controllers"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -20,4 +21,3 @@ import "stylesheets/application"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "controllers"

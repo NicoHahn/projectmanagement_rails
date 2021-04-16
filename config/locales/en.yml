@@ -34,3 +34,10 @@ en:
   company:
     members: 'Members'
     add_user: 'Add user'
+  task:
+    status_0: 'Planned'
+    status_1: 'ToDo'
+    status_2: 'In Progress'
+    status_3: 'In Review'
+    status_4: 'Approved'
+    status_5: 'Done'
