@@ -17,13 +17,6 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    if @company.user_ids.include?(params[:company][:user_ids].to_i)
-      redirect_to company_path(id: @company.id)
-    else
-      @company.user_ids = @company.user_ids << params[:company][:user_ids].to_i
-      @company.save
-      redirect_to company_path(id: @company.id)
-    end
   end
 
   def show
@@ -32,6 +25,14 @@ class CompaniesController < ApplicationController
 
   def delete
 
+  end
+
+  def add_user
+    if User.find_by(id: params[:company][:user_ids].to_i)
+      @company.user_ids = @company.user_ids << params[:company][:user_ids].to_i
+      @company.save!
+    end
+    redirect_to company_path(id: @company.id)
   end
 
   private

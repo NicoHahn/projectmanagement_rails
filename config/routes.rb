@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'companies/:id', to: 'companies#add_user'
+
   patch 'tasks/:id/move', to: 'tasks#move'
 
   resources :users, only: [:new, :create]
