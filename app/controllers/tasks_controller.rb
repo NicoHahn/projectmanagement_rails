@@ -25,6 +25,10 @@ class TasksController < ApplicationController
   def show
   end
 
+  def move
+    @task.update(status: params[:new_status]) if @task
+  end
+
   private
   def set_task
     @task = Task.find_by(id: params[:id])

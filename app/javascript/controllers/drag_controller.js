@@ -19,6 +19,11 @@ export default class extends Controller {
     })
   }
   end(event) {
-    console.log(this.element);
+    let id = event.item.dataset.id
+    $.ajax({
+      url: this.data.get("url").replace(":id", id),
+      type: 'PATCH',
+      data: {new_status: event.to.id}
+    })
   }
 }

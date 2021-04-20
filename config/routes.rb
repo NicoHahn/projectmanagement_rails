@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  patch 'tasks/:id/move', to: 'tasks#move'
+
   resources :users, only: [:new, :create]
 
   get 'login', to: 'sessions#new'
