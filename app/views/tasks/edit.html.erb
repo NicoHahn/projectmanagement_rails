@@ -1,0 +1,10 @@
+<h1>Edit Task</h1>
+<%= form_for [@company, @project, @task] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name  %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :user_id %>
+  <%= f.select(:user_id, @users.collect{ |u| [u.full_name, u.id] }, include_blank: "Select User") %>
+  <%= f.submit "speichern", class: "mt-1.5 transition duration-500 inline-block text-sm px-4 py-2 text-black border-black ease-in-out bg-green-600 hover:bg-black hover:text-white transform hover:-translate-y-1 hover:scale-110 hover:border-transparent rounded border cursor-pointer"%>
+<% end %>
