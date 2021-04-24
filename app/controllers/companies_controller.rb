@@ -28,6 +28,9 @@ class CompaniesController < ApplicationController
   end
 
   def add_user
+    # TODO:
+    # create corresponding notification
+    # create some type of membership level
     if User.find_by(id: params[:company][:user_ids].to_i)
       @company.user_ids = @company.user_ids << params[:company][:user_ids].to_i
       @company.save!
