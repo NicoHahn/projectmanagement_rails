@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    params[:user_id] = current_user.id
+    params[:task][:user_id] = current_user.id
     @task = Task.create(params.require(:task).permit(:name, :description, :project_id, :user_id, :creator_id, :status))
     if @task
       redirect_to company_project_path(company_id: params[:company_id], id: params[:project_id])
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    params[:user_id] = current_user.id
+    params[:task][:user_id] = current_user.id
     if @task.update(params.require(:task).permit(:name, :description, :user_id, :status))
       redirect_to company_project_path(company_id: params[:company_id], id: params[:project_id])
     end

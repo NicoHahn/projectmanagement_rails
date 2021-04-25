@@ -27,6 +27,7 @@ class SessionsController < ApplicationController
 
   def welcome
     @user = current_user
+    @current_companies = @user.companies + Company.where(creator_id: @user.id)
   end
 
 

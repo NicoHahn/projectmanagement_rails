@@ -1,5 +1,5 @@
 <h1 class="text-center">Welcome, <%= @user.full_name %>!</h1>
-<% if @user.companies.count >= 1 %>
+<% if @current_companies.companies.count >= 1 %>
   <h2 class="text-center">Companies you´re currently working in:</h2>
 
   <div class="flex flex-col">
@@ -18,7 +18,7 @@
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <% @user.companies.each_with_index do |company, idx| %>
+              <% @current_companies.each_with_index do |company, idx| %>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="text-sm text-gray-900"><%= idx %></div>
