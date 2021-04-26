@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  sender_id: 1
+  receiver_id: 1
+  associatable: one
+  associatable_type: Associatable
+
+two:
+  type: 
+  sender_id: 1
+  receiver_id: 1
+  associatable: two
+  associatable_type: Associatable

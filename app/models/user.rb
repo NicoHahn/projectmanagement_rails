@@ -1,12 +1,10 @@
 class User < ApplicationRecord
 
   has_secure_password
-
-  has_and_belongs_to_many :companies
-
   has_many :tasks
-
   has_many :notifications
+  has_many :memberships
+  has_many :companies, through: :memberships
 
   validates :email,
             format: { with: /(.+)@(.+)/, message: "Email invalid" },

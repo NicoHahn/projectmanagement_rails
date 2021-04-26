@@ -28,13 +28,8 @@ class CompaniesController < ApplicationController
   end
 
   def add_user
-    # TODO:
-    # create corresponding notification
-    # create some type of membership level
-    if User.find_by(id: params[:company][:user_ids].to_i)
-      @company.user_ids = @company.user_ids << params[:company][:user_ids].to_i
-      @company.save!
-    end
+    @user_to_invite = User.find_by(id: params[:company][:user_ids].to_i)
+    Membership.create_invitation(@company, @user_to_invite, 'pending', current_user) if @user_to_invite
     redirect_to company_path(id: @company.id)
   end
 

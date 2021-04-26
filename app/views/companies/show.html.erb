@@ -4,7 +4,7 @@
 <h2><%= I18n.t 'company.members' %>:</h2>
 
 <ul>
-  <% @company.users.each do |u| %>
+  <% @company.users_accepted.each do |u| %>
     <li><%= u.firstname%>, <%= u.lastname %></li>
   <% end %>
 </ul>

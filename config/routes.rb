@@ -8,9 +8,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :activities
+
   post 'companies/:id', to: 'companies#add_user'
 
   patch 'tasks/:id/move', to: 'tasks#move'
+
+  post 'users/accept_invitation/:invitation_id', to: 'users#accept_invitaion'
+  post 'users/decline_invitation/:invitation_id', to: 'users#decline_invitaion'
 
   resources :users, only: [:new, :create]
 

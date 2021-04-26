@@ -1,0 +1,26 @@
+<ul>
+  <% @new_activities.each do |notification| %>
+    <li><%= notification.get_notification_text %>
+      <a href="/users/accept_invitation/<%= notification.id %>">accept</a>
+      <a href="/users/decline_invitation/<%= notification.id %>">decline</a>
+    </li>
+  <% end %>
+</ul>
+
+<span>old activities</span>
+
+<ul>
+  <% @old_activities.each do |notification| %>
+    <% if notification.notification_type==Notification::TYPE_COMPANY_INVITATION && notification.associatable.status=='pending' %>
+      <li><%= notification.get_notification_text %>
+        <a data-method="post" href="/users/accept_invitation/<%= notification.id %>">accept</a>
+        <a data-method="post" href="/users/decline_invitation/<%= notification.id %>">decline</a>
+      </li>
+    <% elsif notification.notification_type==Notification::TYPE_COMPANY_INVITATION && notification.associatable.status=='declined' %>
+      <li><%= notification.get_notification_text %><a href='#'>invitaion declined</a></li>
+    <% else %>
+      <li><%= notification.get_notification_text %><a href='<%= notification.get_notification_url %>'>to conpany</a></li>
+    <% end %>
+  <% end %>
+</ul>
+

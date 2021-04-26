@@ -12,4 +12,26 @@ class UsersController < ApplicationController
     redirect_to '/welcome'
   end
 
+  def accept_invitaion
+    notification = Notification.find(params[:invitation_id].to_i)
+    if notification
+      membership = notification.associatable
+      membership.update(status: 'accepted')
+      redirect_to company_path(membership.company_id)
+    else
+      ""
+    end
+  end
+
+  def decline_invitaion
+    notification = Notification.find(params[:invitation_id].to_i)
+    if notification
+      membership = notification.associatable
+      membership.update(status: 'declined')
+      redirect_to company_path(membership.company_id)
+    else
+      ""
+    end
+  end
+
 end

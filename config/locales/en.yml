@@ -41,3 +41,8 @@ en:
     status_3: 'In Review'
     status_4: 'Approved'
     status_5: 'Done'
+  notification:
+    invitation_to_company: '%{user} has invited you to a company'
+    task_assignment: '%{user} has changed the assignee'
+    comment: '%{user} wrote a new comment'
+    status_cahnged: '%{user} changed the status'
