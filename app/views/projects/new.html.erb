@@ -1,9 +1,9 @@
 <h1>Create Project</h1>
 <%= form_for [@company, @project] do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name  %>
+  <%= f.text_field :name, class: "border" %>
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: "border" %>
   <%= f.hidden_field :creator_id, value: current_user.id %>
   <%= f.hidden_field :company_id, value: @company.id %>
   <%= f.submit "Projekt erstellen", class: "mt-1.5 transition duration-500 inline-block text-sm px-4 py-2 text-black border-black ease-in-out bg-green-600 hover:bg-black hover:text-white transform hover:-translate-y-1 hover:scale-110 hover:border-transparent rounded border cursor-pointer"%>

@@ -1,9 +1,9 @@
 <h1>Create Task</h1>
 <%= form_for [@company, @project, @task] do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name  %>
+  <%= f.text_field :name, class: "border" %>
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: "border" %>
   <%= f.label :user_id %>
   <%= f.select(:user_id, @users.collect{ |u| [u.full_name, u.id] }, include_blank: "Select User") %>
   <%= f.label :status %>
