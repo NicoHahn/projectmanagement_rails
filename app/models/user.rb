@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :memberships
   has_many :companies, through: :memberships
+  has_many :comments
 
   validates :email,
             format: { with: /(.+)@(.+)/, message: "Email invalid" },
